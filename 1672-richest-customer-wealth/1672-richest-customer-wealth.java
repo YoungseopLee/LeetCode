@@ -3,16 +3,14 @@ import java.util.Arrays;
 class Solution {
     public int maximumWealth(int[][] accounts) {
         
-        int[] newArray = new int[accounts.length];
+        int maxWealth = Integer.MIN_VALUE;
         
-        for(int i=0; i<accounts.length; i++){
-            for(int j=0; j<accounts[i].length; j++){
-                newArray[i] += accounts[i][j];
-            }
+        for (int[] account : accounts) {
+            System.out.println("account : " + Arrays.toString(account));
+            maxWealth = Math.max(maxWealth, Arrays.stream(account).sum());
+            System.out.println("maxWealth : " + maxWealth);
         }
-        
-        Arrays.sort(newArray);
-        return newArray[newArray.length-1];
-        
+        System.out.println(maxWealth);
+        return maxWealth;
     }
 }
